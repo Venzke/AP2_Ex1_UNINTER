@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale>
+
+int main() {
+
+	int pecas[8][8];	//Variáveis.
+	char c;
+	setlocale(LC_ALL, "portuguese"); //Acentuação.
+
+	printf("Pecas:							Gabriel Moreira, RU: 3329252");
+	printf("\n\n");
+	printf("1 - Peoes	|	3 - Torres	|	5 - Reis"		);
+	printf("\n");
+	printf("2 - Cavalos	|	4 - Bispos	|	6 - Rainhas"	);
+	printf("\n");
+	printf("			0 - Nenhum"							);
+	printf("\n\n");
+
+
+	for (int i = 0; i < 8; i++)	//Inserção dos dados na matriz.
+	{
+		for (int j = 0; j < 8; j++) {
+
+			printf("Insira o n referente a peca na linha(%i), coluna(%i): ", i, j);
+			scanf_s("%i", &pecas[i][j]);
+			while ((c = getchar()) != '\n' && c != EOF) {};
+			
+			if (pecas[i][j] < 0 || pecas[i][j] > 6)
+			{
+				printf("\n");
+				printf("==== ERRO, Numero inserido invalido ====");
+				printf("\n");
+				printf("Insira o n referente a peca na linha(%i), coluna(%i): ", i, j);
+				scanf_s("%i", &pecas[i][j]);
+				while ((c = getchar()) != '\n' && c != EOF) {};
+			}
+		}
+	}
+
+	printf("\n\n");
+
+	for (int i = 0; i < 8; i++)	//Impressão dos dados na matriz.
+	{
+		for (int j = 0; j < 8; j++) {
+			printf("| %i ", pecas[i][j]);
+		}
+		printf("|");
+		printf("\n");
+	}
+
+	int vet[7] = {0, 0, 0, 0, 0, 0, 0};
+
+	for (int i = 0; i < 8; i++)
+	{
+		for (int x = 0; x < 8; x++) {
+			if (pecas[i][x] == 1){
+				vet[0]++;
+			}
+
+			if (pecas[i][x] == 2) {
+				vet[1]++;
+			}
+
+			if (pecas[i][x] == 3) {
+				vet[2]++;
+			}
+
+			if (pecas[i][x] == 4) {
+				vet[3]++;
+			}
+
+			if (pecas[i][x] == 5) {
+				vet[4]++;
+			}
+
+			if (pecas[i][x] == 6) {
+				vet[5]++;
+			}
+
+			if (pecas[i][x] == 0) {
+				vet[6]++;
+			}
+		}
+	}
+
+	printf("\n\n");
+
+			printf("Quantidade de Peoes: %i\n", vet[0]);
+			printf("Quantidade de Cavalos: %i\n", vet[1]);
+			printf("Quantidade de Torres: %i\n", vet[2]);
+			printf("Quantidade de Bispos: %i\n", vet[3]);
+			printf("Quantidade de Reis: %i\n", vet[4]);
+			printf("Quantidade de Rainhas: %i\n\n", vet[5]);
+			printf("Quantidade de casas vazias: %i\n", vet[6]);
+
+	printf("\n\n");
+	return 0;
+}
