@@ -7,8 +7,10 @@ int main() {
 	int pecas[8][8];	//Variáveis.
 	char c;
 	setlocale(LC_ALL, "portuguese"); //Acentuação.
-
-	printf("Pecas:							Gabriel Moreira, RU: 3329252");
+	
+	printf("------------------------------------------------------------------------------------------ Gabriel Moreira, RU: 3329252");
+	printf("\n");
+	printf("Pecas:");
 	printf("\n\n");
 	printf("1 - Peoes	|	3 - Torres	|	5 - Reis"		);
 	printf("\n");
@@ -95,5 +97,7 @@ int main() {
 			printf("Quantidade de casas vazias: %i\n", vet[6]);
 
 	printf("\n\n");
+	printf("------------------------------------------------------------------------------------------ Gabriel Moreira, RU: 3329252");
+	printf("\n");
 	return 0;
 }
